@@ -76,7 +76,14 @@
 #define TEE_EXTEND_NGWM_ENABLE_SERVICE                  47
 #define TEE_EXTEND_NGWM_SET_STUB_EMBEDDING              48
 #define TEE_EXTEND_NGWM_SET_24BIT_MODE                  49
-#define TEE_EXTEND_MAX                                  49
+#define TEE_EXTEND_HDCP_SET_STREAMID                    50
+#define TEE_EXTEND_HDCP_GET_STREAMID                    51
+#define TEE_EXTEND_TVP_ENTER                            52
+#define TEE_EXTEND_TVP_EXIT                             53
+#define TEE_EXTEND_TVP_GET_VIDEO_SIZE                   54
+#define TEE_EXTEND_TVP_GET_DISPLAY_SIZE                 55
+#define TEE_EXTEND_TVP_SET_VIDEO_LAYER                  56
+#define TEE_EXTEND_TVP_GET_VIDEO_LAYER                  57
 
 struct tee_vdec_info_param {
 	paddr_t pa;
@@ -146,6 +153,21 @@ struct tee_hdcp_load_key_param {
 	uint32_t mode;
 	uint8_t *keybuf;
 	uint32_t keylen;
+};
+
+struct tee_hdcp_streamid_param {
+	uint32_t type;
+};
+
+struct tee_tvp_resolution_param {
+	uint32_t width;
+	uint32_t height;
+};
+
+struct tee_tvp_video_layer_param {
+	uint32_t video_layer;
+	uint32_t enable;
+	uint32_t flags;
 };
 
 struct tee_asymm_sign_padding_param {
@@ -218,7 +240,7 @@ struct tee_kl_run_param {
 
 struct tee_desc_alloc_channel_param {
 	int dsc_no;
-	int *fd;
+	int fd;
 };
 
 struct tee_desc_free_channel_param {

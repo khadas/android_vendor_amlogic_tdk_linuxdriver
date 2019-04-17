@@ -39,7 +39,7 @@
  * TA Interface
  *
  * Each Trusted Application must provide the Implementation with a number
- * of functions, collectively called the These functions
+ * of functions, collectively called the “TA interface”. These functions
  * are the entry points called by the Trusted Core Framework to create the
  * instance, notify the instance that a new client is connecting, notify
  * the instance when the client invokes a command, etc.
@@ -69,7 +69,7 @@
 TEE_Result TA_EXPORT TA_CreateEntryPoint(void);
 
 /*
- * The function TA_DestroyEntryPoint is the Trusted Application
+ * The function TA_DestroyEntryPoint is the Trusted Application‟s
  * destructor, which the Framework calls when the instance is being
  * destroyed.
  *

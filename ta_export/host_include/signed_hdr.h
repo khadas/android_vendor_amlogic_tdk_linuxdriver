@@ -88,6 +88,8 @@ struct shdr {
 };
 
 #define TA_HEADER_INFO_SIZE	(sizeof(struct shdr))
+#define TA_HEADER_TOTAL_SIZE    (TA_HEADER_INFO_SIZE + TA_SIGN_SHA_DIGEST_SIZE +\
+		3 * TA_SIGN_RSA_PUB_KEY_SIZE)
 
 #define SHDR_GET_SIZE(x)	((((struct shdr *)(x))->img_type == \
 		SHDR_TA_SIGNED)?(TA_HEADER_INFO_SIZE + TA_SIGN_SHA_DIGEST_SIZE +\
