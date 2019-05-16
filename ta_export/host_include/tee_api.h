@@ -499,7 +499,10 @@ typedef struct {
 	paddr_t pa;
 	size_t size;
 } vdec_info_t;
+
 TEE_Result TEE_Vdec_Get_Info(vdec_info_t *info);
+
+TEE_Result TEE_Tvp_Init(vdec_info_t *info, size_t count);
 
 TEE_Result TEE_Tvp_Enter(void);
 
@@ -515,11 +518,8 @@ TEE_Result TEE_Protect_Mem2(unsigned int startaddr, unsigned int size, int enabl
 
 TEE_Result TEE_Setting_Device(int device_number, int port, int enable);
 
-TEE_Result TEE_Unify_Read(uint8_t *keyname, uint8_t *keybuf,
-			uint32_t keylen, uint32_t *readlen);
-
-TEE_Result TEE_Unify_Write(uint8_t *keyname, uint8_t *keybuf,
-			uint32_t keylen, uint32_t keyattr);
+TEE_Result TEE_Unify_Read(uint8_t *keyname, uint32_t keynamelen,
+			uint8_t *keybuf, uint32_t keylen, uint32_t *readlen);
 
 TEE_Result TEE_Efuse_Read_Tee(uint8_t *outbuf, uint32_t offset,
 			size_t size);

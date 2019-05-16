@@ -32,7 +32,6 @@
 #define TEE_EXTEND_VDEC_MUNMAP                          3
 #define TEE_EXTEND_PROTECT_MEM                          4
 #define TEE_EXTEND_UNIFY_READ                           5
-#define TEE_EXTEND_UNIFY_WRITE                          6
 #define TEE_EXTEND_EFUSE_READ_TEE                       7
 #define TEE_EXTEND_EFUSE_READ_REE                       8
 #define TEE_EXTEND_HDCP_GET_STATE                       9
@@ -84,10 +83,17 @@
 #define TEE_EXTEND_TVP_GET_DISPLAY_SIZE                 55
 #define TEE_EXTEND_TVP_SET_VIDEO_LAYER                  56
 #define TEE_EXTEND_TVP_GET_VIDEO_LAYER                  57
+#define TEE_EXTEND_TVP_INIT                             58
 
 struct tee_vdec_info_param {
 	paddr_t pa;
 	size_t size;
+};
+
+#define TEE_TVP_POOL_MAX_COUNT	4
+struct tee_tvp_init_param {
+	size_t count;
+	struct tee_vdec_info_param p[TEE_TVP_POOL_MAX_COUNT];
 };
 
 struct tee_vdec_mmap_param {
@@ -109,16 +115,10 @@ struct tee_protect_mem_param {
 
 struct tee_unify_read_param {
 	uint8_t *name;
+	uint32_t namelen;
 	uint8_t *buf;
-	uint32_t len;
+	uint32_t buflen;
 	uint32_t readlen;
-};
-
-struct tee_unify_write_param {
-	uint8_t *name;
-	uint8_t *buf;
-	uint32_t len;
-	uint32_t attr;
 };
 
 struct tee_efuse_read_tee_param {
@@ -275,6 +275,7 @@ struct tee_desc_set_output_param {
 struct tee_storage_obj_access_param {
 	void *object_id;
 	size_t object_id_len;
+	uint32_t storage_id;
 };
 
 struct tee_storage_obj_open_param {

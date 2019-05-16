@@ -33,7 +33,7 @@ def main():
 	img_size = len(img)
 
 	magic = 0x4f545348	# SHDR_MAGIC
-	version = 0x00000204# VERSION
+	version = 0x02000204# VERSION
 	img_type = 1		# SHDR_TA
 	algo = 0x70004830	# TEE_ALG_RSASSA_PKCS1_V1_5_SHA256
 	shdr = struct.pack('<IIIIIIIIIIIIIIII', \
