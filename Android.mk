@@ -9,12 +9,12 @@ endif
 KERNEL_OUT_DIR := $(PRODUCT_OUT)/obj/KERNEL_OBJ
 ifeq ($(KERNEL_A32_SUPPORT), true)
 KERNEL_ARCH := arm
-KERNEL_DRIVER_CROSS_COMPILE := /opt/gcc-linaro-6.3.1-2017.02-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-
-KERNEL_CONFIG=meson64_a32_defconfig
+KERNEL_DRIVER_CROSS_COMPILE := /opt/toolchains/gcc-linaro-6.3.1-2017.02-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-
+KERNEL_CONFIG=kvim_a32_defconfig
 else
 KERNEL_ARCH := arm64
 KERNEL_DRIVER_CROSS_COMPILE := aarch64-linux-gnu-
-KERNEL_CONFIG=meson64_defconfig
+KERNEL_CONFIG=kvim_defconfig
 endif
 
 OPTEE_MODULES := $(shell pwd)/$(PRODUCT_OUT)/obj/optee_modules
