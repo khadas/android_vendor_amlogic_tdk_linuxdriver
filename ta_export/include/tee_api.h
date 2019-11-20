@@ -734,4 +734,7 @@ TEE_Result TEE_Shm_Munmap(uint32_t va, uint32_t size);
 TEE_Result TEE_Mailbox_Send_Cmd(uint32_t command, uint8_t *inbuf,
 		uint32_t inlen, uint8_t *outbuf, uint32_t *outlen, uint32_t *response);
 
+TEE_Result TEE_Km_Get_Boot_Params(uint32_t *locked, uint32_t *boot_state,
+		uint8_t *boot_key, uint32_t *boot_key_len,
+		uint8_t *boot_hash, uint32_t *boot_hash_len);
 #endif /* TEE_API_H */

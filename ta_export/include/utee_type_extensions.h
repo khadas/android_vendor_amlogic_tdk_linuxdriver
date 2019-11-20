@@ -112,6 +112,8 @@
 #define TEE_EXTEND_TVP_OPEN_CHAN                        83
 #define TEE_EXTEND_TVP_CLOSE_CHAN                       84
 #define TEE_EXTEND_TVP_BIND_CHAN                        85
+#define TEE_EXTEND_KM_SET_BOOT_PARAMS                   86
+#define TEE_EXTEND_KM_GET_BOOT_PARAMS                   87
 
 struct tee_vdec_info_param {
 	paddr_t pa;
@@ -528,6 +530,14 @@ struct tee_cipher_decrypt_with_kwrap_param {
 	uint32_t src_len;
 	uint8_t *dst;
 	uint32_t *dst_len;
+};
+
+#define SHA256_DIGEST_SIZE 32
+struct tee_km_boot_params{
+	uint32_t device_locked;
+	uint32_t verified_boot_state;
+	uint8_t verified_boot_key[SHA256_DIGEST_SIZE];
+	uint8_t verified_boot_hash[SHA256_DIGEST_SIZE];
 };
 
 #endif /* UTEE_TYPE_EXTENSIONS_H */
