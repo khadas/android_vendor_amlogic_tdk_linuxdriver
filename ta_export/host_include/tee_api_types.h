@@ -224,4 +224,6 @@ typedef void *TEE_Session;
 
 #define TEE_SE_READER_NAME_MAX	20
 
+typedef void *TEE_Tvp_Handle;
+
 #endif /* TEE_API_TYPES_H */
