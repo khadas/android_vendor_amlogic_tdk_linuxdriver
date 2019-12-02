@@ -11,6 +11,7 @@
 /* CFG_BOOT_SECONDARY_REQUEST is not set */
 #define CFG_CACHE_API 1
 #define CFG_CIPHER_DECRYPT 1
+/* CFG_CLEAN_TVP_MEM_WHEN_TVP_EXIT is not set */
 #define CFG_CONCURRENT_SINGLE_INSTANCE_TA 1
 #define CFG_CORE_BIGNUM_MAX_BITS 4096
 #define CFG_CORE_HEAP_SIZE 65536
@@ -83,7 +84,6 @@
 #define CFG_LPAE_ADDR_SPACE_SIZE (1ull << 32)
 #define CFG_LTC_OPTEE_THREAD 1
 /* CFG_MARKETID_TA is not set */
-/* CFG_MESON_MEMCONFIG_ENABLE is not set */
 #define CFG_MESON_UART 1
 #define CFG_MMU_V7_TTB 1
 #define CFG_MSG_LONG_PREFIX_THRESHOLD 3
@@ -98,8 +98,11 @@
 /* CFG_REE_CALLBACK is not set */
 #define CFG_REE_FS 1
 #define CFG_REE_LOGGER 1
+/* CFG_REG_DEBUG is not set */
+/* CFG_RNG_API is not set */
 #define CFG_RPMB_DRIVER 1
 #define CFG_RPMB_FS_DEV_ID 2
+/* CFG_RPMB_FS_FORMAT is not set */
 /* CFG_RPMB_TEST is not set */
 /* CFG_RPMB_WRITE_KEY is not set */
 #define CFG_RSV_MEM_SIZE 0x300000

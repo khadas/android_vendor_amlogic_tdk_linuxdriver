@@ -94,6 +94,7 @@
 #define TEE_EXTEND_READ_REG                             64
 #define TEE_EXTEND_WRITE_REG                            65
 #define TEE_EXTEND_UPDATE_MVN                           66
+#define TEE_EXTEND_READ_RNG_POOL                        67
 #define TEE_EXTEND_TVP_SET_AUDIO_MUTE                   68
 #define TEE_EXTEND_DESC_SET_ALGO                        69
 #define TEE_EXTEND_DESC_SET_MODE                        70
@@ -114,6 +115,7 @@
 #define TEE_EXTEND_TVP_BIND_CHAN                        85
 #define TEE_EXTEND_KM_SET_BOOT_PARAMS                   86
 #define TEE_EXTEND_KM_GET_BOOT_PARAMS                   87
+#define TEE_EXTEND_CRYPTO_RUN_EXT                       88
 
 struct tee_vdec_info_param {
 	paddr_t pa;
@@ -479,7 +481,8 @@ struct tee_crypto_run_param {
 	uint32_t keysize;
 	uint8_t *ivaddr;
 	uint8_t dir;
-	uint8_t __padding[3];
+	uint8_t thread;
+	uint8_t __padding[2];
 };
 
 struct tee_crypto_set_key_iv_param {
@@ -538,6 +541,11 @@ struct tee_km_boot_params{
 	uint32_t verified_boot_state;
 	uint8_t verified_boot_key[SHA256_DIGEST_SIZE];
 	uint8_t verified_boot_hash[SHA256_DIGEST_SIZE];
+};
+
+struct tee_read_rng_pool_param {
+	uint8_t *out;
+	uint32_t size;
 };
 
 #endif /* UTEE_TYPE_EXTENSIONS_H */

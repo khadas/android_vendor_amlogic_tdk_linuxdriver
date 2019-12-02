@@ -142,6 +142,8 @@ TEE_Result TEE_WriteReg(uint32_t reg, uint32_t val);
 
 TEE_Result TEE_UpdateMVN(uint32_t type, uint32_t flag, uint32_t check);
 
+TEE_Result TEE_ReadRngPool(uint8_t *out, uint32_t size);
+
 /* Data and Key Storage API  - Generic Object Functions */
 
 void TEE_GetObjectInfo(TEE_ObjectHandle object, TEE_ObjectInfo *objectInfo);
@@ -382,6 +384,9 @@ TEE_Result TEE_ExportKey(TEE_ObjectHandle key, void *publibKeyBuffer,
 TEE_Result TEE_ImportKey(TEE_ObjectHandle key, void *keyBuffer,
 		uint32_t keyBufferLen);
 
+TEE_Result TEE_Crypto_Run_Ext(char *alg, uint8_t *srcaddr, uint32_t datalen,
+		   uint8_t *dstaddr, uint8_t *keyaddr, uint32_t keysize,
+		   uint8_t *ivaddr, uint8_t dir, uint8_t thread);
 
 TEE_Result TEE_Crypto_Run(char *alg, uint8_t *srcaddr, uint32_t datalen,
 		   uint8_t *dstaddr, uint8_t *keyaddr, uint32_t keysize,
@@ -515,7 +520,7 @@ void TEE_BigIntComputeFMM(TEE_BigIntFMM *dest, const TEE_BigIntFMM *op1,
 #define TEE_TVP_VIDEO_LAYER_OFFSET      0
 #define TEE_TVP_VIDEO_TYPE_OFFSET       4
 
-#define TEE_TVP_CFG_NO_VIDEO_LAYER      (0<<TEE_TVP_VIDEO_LAYER_OFFSET)
+#define TEE_TVP_CFG_VIDEO_LAYER_NONE    (0<<TEE_TVP_VIDEO_LAYER_OFFSET)
 #define TEE_TVP_CFG_VIDEO_LAYER_1       (1<<TEE_TVP_VIDEO_LAYER_OFFSET)
 #define TEE_TVP_CFG_VIDEO_LAYER_2       (2<<TEE_TVP_VIDEO_LAYER_OFFSET)
 #define TEE_TVP_CFG_DRM_PLAYBACK        (1<<TEE_TVP_VIDEO_TYPE_OFFSET)
